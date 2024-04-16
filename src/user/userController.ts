@@ -69,10 +69,8 @@ const loginUser = async (req: Request, res: Response, next: NextFunction) => {
         }
 
         const isMatch = await bcrypt.compare(password, user.password)
-        console.log(isMatch)
         
         if (!isMatch) {
-            console.log('inside not isMatch')
             return next(createHttpError(400, "Username or password incorrect!"))
         }
 
